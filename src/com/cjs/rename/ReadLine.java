@@ -15,7 +15,7 @@ public class ReadLine {
 
 	public static void main(String[] args) {
 		// 计数器
-		int num = 12;
+		int num = 1;
 		// 初始化文件
 		File file = null;
 		// 存放初始化文件的目录（注意不同系统目录格式的差异）
