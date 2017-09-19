@@ -19,10 +19,10 @@ public class ReadLine {
 		// 初始化文件
 		File file = null;
 		// 存放初始化文件的目录（注意不同系统目录格式的差异）
-		File dir = new File("/Users/liuyw/Desktop/oldFile");		
+		File dir = new File("./oldFile");		
 		//判断初始化文件目录是否为空
 		if(dir.listFiles().length<=0)
-			System.out.println("警告:原文件目录为空");		
+			System.out.println("温馨提示:oldFile目录是否已经存放文件？");		
 		//迭代目录所有文件
 		for (File temp : dir.listFiles()) {
 			//游标(判断文本是否停止读取，所有文本一旦获关键值后则把游标赋值为1标记终止)
@@ -82,12 +82,22 @@ public class ReadLine {
 					
 										
 					// 重命名后的文件
-					File file1 = new File("/Users/liuyw/Desktop/newFile/" + rename + ".log");
+					File file1 = new File("./newFile/" + rename + ".log");
+					//重名计数器
+					int j = 1;
+					//重名标识
+					String doubleName = "否";
+					//如果重名
+					while(file1.exists()) {	
+						doubleName="是";
+						file1 = new File("./newFile/" + rename +"_"+j+ ".log");
+						j++;
+					}
 					// 重命名文件
 					file.renameTo(file1);
 					// 输出日志信息
 					System.out.println("文件序号：" + num + "\r\n厂商:"+factory+"\r\n原文件:" + fullName.substring(fullName.lastIndexOf("/") + 1)
-							+ "\r\n目标行:" + target + "\r\n重命名文件:"
+							+ "\r\n目标行:" + target + "\r\n是否重名:"+doubleName+"\r\n重命名文件:"
 							+ file1.getName().substring(file1.getName().lastIndexOf("/") + 1)
 							+ "\t\n---------------------------------------------------------------------");
 					// 计数器累加
