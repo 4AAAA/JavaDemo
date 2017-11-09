@@ -31,7 +31,6 @@ public class Demo03 {
 		while(iterator.hasNext())
 			System.out.println("数据展示--》"+iterator.next()); 
 		
-		
 	}
 
 }

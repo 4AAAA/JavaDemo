@@ -51,10 +51,10 @@ public class ReadLine {
 					// 一次读入一行，直到读入null并且游标终止时为文件结束，第一次扫描先确定华为厂商，排除'A'和'B'干扰
 					while (ver==0 && (tempString = reader1.readLine()) != null) {
 						// 华为厂商：判断是否存在关键字：sysname
-						if (tempString.contains("sysname")) {
+						if (tempString.contains("<")) {
 							target = tempString;
 							// 截取所需的文件名
-							rename = tempString.substring(tempString.indexOf("e") + 2, tempString.length());
+							rename = tempString.substring(tempString.indexOf("<") + 1, tempString.indexOf(">"));
 							//游标标记终止，则后面不再往下读取文本
 							ver=1;
 							//华为厂商
