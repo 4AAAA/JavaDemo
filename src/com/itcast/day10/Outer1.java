@@ -10,7 +10,7 @@ public class Outer1 {
 		
 		class Inner{
 			public void say() {
-				System.out.println("我是局部内部类发出的方法,aa="+a);
+//				System.out.println("我是局部内部类发出的方法,aa="+a);
 			}
 		}
 		
